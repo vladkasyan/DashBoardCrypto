@@ -1,0 +1,48 @@
+body {
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+th {
+  text-align: left;
+}
+
+tr:hover {
+  background: #222;
+  cursor: pointer;
+}
+
+th.sortable {
+  cursor: pointer;
+}
+
+.chart-wrapper {
+  height: 300px;
+  border: 1px solid #333;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+#calculator input {
+  padding: 5px;
+  margin-right: 5px;
+  width: 150px;
+}
