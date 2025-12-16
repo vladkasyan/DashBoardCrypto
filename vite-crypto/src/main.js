@@ -82,9 +82,10 @@ coins.forEach((coin, index) => {
 }
 loadCoins();
 
-const url = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=pln&days=7`;
+
 
 async function loadChartForCoin(coin) {
+  const url = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=pln&days=7`;
   const response = await fetch(url);
 
   const data = await response.json();
@@ -127,9 +128,10 @@ if (chartInstance) {
     }
   });
 }
-document.getElementById('price-header').addEventListener('click', toggleSort);
+
 
 function toggleSort() {
+  console.log('da');
   sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
 
   coins.sort((a,b) => {
@@ -139,3 +141,19 @@ function toggleSort() {
   });
   renderTable();
 }
+const priceHeader = document.getElementById('price-header');
+priceHeader.style.cursor = 'pointer';
+priceHeader.addEventListener('click', toggleSort);
+
+const input = document.getElementById("pln-input");
+const output = document.getElementById('btc-output');
+
+input.addEventListener('input', ()=>{
+  let plnValue = Number(input.value)
+  if(!plnValue || !btcPrice) {
+    input.textContent = '';
+    return;
+  }
+  let btcAmount = plnValue / btcPrice;
+  output.textContent = `To jest : ${btcAmount.toFixed(6)}`;
+})
